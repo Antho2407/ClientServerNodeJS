@@ -4,6 +4,7 @@ var sendChannel;
 var sendButton = document.getElementById("sendButton");
 var sendTextarea = document.getElementById("dataChannelSend");
 var receiveTextarea = document.getElementById("dataChannelReceive");
+var userNameText = document.getElementById("usernameText");
 
 sendButton.onclick = sendData;
 
@@ -84,6 +85,31 @@ socket.on('log', function (array){
   console.log.apply(console, array);
 });
 
+
+
+//TODO
+//send chat message
+function sendData() {
+  var message = sendTextarea.value;
+  var username = userNameText.value;
+  var data = {};
+  data.name = username;
+  data.value = message;
+  console.log('Sending chat message from:', data.name);
+  console.log('Sending chat message value: ', data.value);
+  socket.emit('sendChat', data);
+  receiveTextarea.value += data.name + " dit: "+data.value+"\n";
+  sendTextarea.value = "";
+}
+
+//TODO
+//get chat message
+socket.on('sendChat', function (data){
+  console.log('Received chat message clientside from:', data.name);
+  console.log('Received chat message clientside value:', data.value);
+  receiveTextarea.value += data.name + " dit: "+data.value+"\n";
+}); 
+
 ////////////////////////////////////////////////
 
 // Envoi de message générique, le serveur broadcaste à tout le monde
@@ -97,7 +123,7 @@ function sendMessage(message){
 
 // Récépeiton de message générique.
 socket.on('message', function (message){
-  console.log('Received message:', message);
+  console.log('Received message prut:', message);
 
 
   if (message === 'got user media') {
@@ -250,11 +276,7 @@ function createPeerConnection() {
   }
 }
 
-function sendData() {
-  var data = sendTextarea.value;
-  sendChannel.send(data);
-  trace('Sent data: ' + data);
-}
+
 
 // function closeDataChannels() {
 //   trace('Closing data channels');
@@ -428,6 +450,7 @@ function handleRemoteStreamAdded(event) {
   remoteStream = event.stream;
 //  waitForRemoteVideo();
 }
+
 
 function handleRemoteStreamRemoved(event) {
   console.log('Remote stream removed. Event: ', event);

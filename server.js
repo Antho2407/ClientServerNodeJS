@@ -54,7 +54,16 @@ io.sockets.on('connection', function (socket){
 
 	});
 
+	socket.on('sendChat', function (data) {
+		log('Got chat message serverside from: '+ data.name);
+		log('Got chat message serverside value: '+ data.value);
+
+		socket.broadcast.emit('sendChat',data);
+	});
+
 });
+
+
 
 function roomCount(room){
 	localCount = 0;
