@@ -1,0 +1,370 @@
+*{
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+html{
+	height: 100%;
+}
+body{
+	
+	min-height: 100%;
+}
+
+/* 
+
+CONTAINER 
+
+*/
+
+.global_container {
+	margin: 0;
+	display: flex; /* or inline-flex */
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	flex-wrap:wrap;
+
+}
+.first_container{
+	display: flex; 
+	width: 25%;
+	height: 93vh;
+	background-color: #215A6D;
+	flex-direction:column;
+}
+.secondary_container{
+	width: 50%;
+	height: 93vh;
+	background-color:#3CA2A2;
+	flex-direction:column;
+}
+
+.last_container{
+	display: flex; 
+	width: 25%;
+	height: 93vh;
+	background-color: #92C7A3;
+	flex-direction:column;
+}
+
+.header{
+	display: flex;
+	width: 100%;
+	background: #2D2D29;
+	height: 7vh;
+	text-align: center;
+}
+
+.menu_icon{
+	width: 5vw;
+	min-height: 100%;
+}
+.menu_icon:before {    /* create a full-height inline block pseudo=element */
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    min-height: 7vh;
+}
+.menu_icon:hover{
+	background-color: #215A6D;
+	cursor: pointer;
+}
+
+.background-blue{
+	background-color: #215A6D;
+}
+.room_title{
+	width: 95vw;
+	text-align: center;
+	min-height: 100%;
+}
+
+.header h1{
+	font-size: 2vw;
+	margin: 0;
+	line-height: 7vh;
+	color:#DFECE6;
+	margin-right: 1%;
+}
+.header img{
+	height: 4vh;
+	width: 3vw;
+	display: inline-block;
+    vertical-align: middle;
+
+}
+
+#users{
+	height: 60vh;
+	overflow: auto;
+	text-align: center;
+}
+
+#pseudo{
+	height: 8vh;
+	background-color: #2D2D29;
+	text-align: center;
+}
+
+#pseudo h2{
+	line-height: 8vh;
+	color:#DFECE6;
+	font-size: 1.5vw;
+}
+
+#user{
+	height: 25vh;
+	background-color: #DFECE6;
+	
+}
+
+#user img{
+	width: 100%;
+	height: 25vh;
+}
+
+.files{
+	height: 62vh;
+	overflow: auto;
+}
+
+.files ul{
+	list-style-type: none; 
+	padding: 0; 
+}
+.files ul li{
+	display: block;
+	height: 8vh;
+	background-color:#2D2D29;
+
+}
+
+.files ul li:hover{
+	background-color:#DFECE6;
+	cursor: pointer;
+}
+
+.header_files{
+	height: 8vh;
+	background-color:#215A6D;
+	text-align: center;
+}
+.header_files h2{
+	font-size: 1.5vw;
+	line-height: 8vh;
+	width: 100%;
+	color: #DFECE6;
+}
+
+.map h2{
+	font-size: 1.5vw;
+	line-height: 8vh;
+	width: 100%;
+	background-color:#215A6D;
+	text-align: center;
+	color: #DFECE6;
+}
+
+.map{
+	height: 30vh;
+}
+
+/* 
+
+Users 
+
+*/
+
+.grid {
+	position: relative;
+	margin: 0 auto;
+	max-width: 100%;
+	width: 100%;
+	list-style: none;
+	text-align: center;
+}
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+	margin: 2% 0;
+	border-radius: 10px;
+
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	color: #fff;
+	text-transform: uppercase;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	border-bottom-right-radius: 10px;
+}
+
+.grid figcaption{
+
+	padding:0;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+	font-size: 1.5vw;
+	
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+}
+
+figure.effect-zoe figcaption {
+	top: auto;
+	bottom: 0;
+	max-width: 100%;
+	height: 17%;
+	background-color: rgba(45, 45, 41, 0.7);
+	color: #DFECE6;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+figure.effect-zoe h2 {
+	float: left;
+}
+
+figure.effect-zoe p.icon-links a {
+	float: right;
+	color: #3c4a50;
+	font-size: 1.4em;
+}
+
+figure.effect-zoe:hover p.icon-links a:hover,
+figure.effect-zoe:hover p.icon-links a:focus {
+	color: #252d31;
+}
+
+figure.effect-zoe p.description {
+	position: absolute;
+	bottom: 8em;
+	padding: 2em;
+	color: #fff;
+	text-transform: none;
+	font-size: 90%;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
+figure.effect-zoe h2,
+figure.effect-zoe p.icon-links a {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,200%,0);
+	transform: translate3d(0,200%,0);
+}
+
+figure.effect-zoe p.icon-links a span::before {
+	display: inline-block;
+	padding: 8px 10px;
+	font-family: 'feathericons';
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye::before {
+	content: '\e000';
+}
+
+.icon-paper-clip::before {
+	content: '\e001';
+}
+
+.icon-heart::before {
+	content: '\e024';
+}
+
+figure.effect-zoe h2 {
+	display: inline-block;
+}
+
+figure.effect-zoe:hover p.description {
+	opacity: 1;
+}
+
+figure.effect-zoe:hover figcaption,
+figure.effect-zoe:hover h2,
+figure.effect-zoe:hover p.icon-links a {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure.effect-zoe:hover h2 {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+figure.effect-zoe:hover p.icon-links a:first-child {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
